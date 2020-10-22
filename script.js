@@ -83,7 +83,17 @@ function populateCityWeather(city, citySearchList) {
 
             var uvIndexDisplay = $("<button>");
             uvIndexDisplay.addClass("btn btn-danger");
-            
+
+            $("#current-uv").text("UV Index: ");
+            $("#current-uv").append(uvIndexDisplay.text(uvIndex[0].value));
+            console.log(uvIndex[0].value);
+
+            $.ajax({
+                url: queryURL2,
+                method: "GET"
+            }).then(function(forecast) {
+                console.log(queryURL2);
+            })
         })
     }
 }
